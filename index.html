@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alpha Road Logistics | CRM</title>
+<style>
+:root{--navy:#10243a;--navy2:#183650;--teal:#0e9f91;--bg:#f3f6fa;--ink:#172536;--muted:#6c7b8b;--line:#e4eaf0;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px/1.5 Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}
+.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.side{background:var(--navy);color:#dbe6ef;padding:25px 16px}.brand{font-size:18px;font-weight:800;color:#fff;line-height:1.2;padding:0 12px 28px}.brand small{display:block;color:#9fb5c8;font-size:10px;letter-spacing:2px;margin-top:7px}.navlabel{font-size:10px;color:#8299ac;text-transform:uppercase;letter-spacing:1.5px;padding:14px 12px 7px}.nav button{width:100%;border:0;background:transparent;color:#c8d6e2;text-align:left;padding:11px 12px;border-radius:8px;margin:2px 0;cursor:pointer;font-size:13px}.nav button.active,.nav button:hover{background:#24445d;color:#fff}.main{min-width:0}.top{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px}.top strong{font-size:15px}.user{color:var(--muted);font-size:12px}.content{padding:28px 30px;max-width:1500px;margin:auto}.heading{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}.heading h1{font-size:24px;margin:0 0 4px}.sub{color:var(--muted)}.pill{background:#e7f7f4;color:#087f73;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:22px}.stat,.panel{background:#fff;border:1px solid var(--line);border-radius:12px}.stat{padding:17px 18px}.stat span{display:block;color:var(--muted);font-size:12px}.stat b{display:block;font-size:25px;margin-top:5px}.panel{padding:20px;margin-bottom:18px}.panel h2{font-size:16px;margin:0 0 4px}.hint{color:var(--muted);font-size:12px;margin-bottom:17px}
+.grid2{display:grid;grid-template-columns:minmax(320px, .85fr) minmax(400px,1.4fr);gap:18px}.field{margin:0 0 13px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea,.search{width:100%;border:1px solid #d9e1e9;border-radius:8px;padding:10px 11px;font:inherit;background:#fff;color:var(--ink)}textarea{min-height:125px;resize:vertical}.btn{border:0;border-radius:8px;padding:10px 15px;background:var(--teal);color:white;font-weight:700;cursor:pointer}.btn:hover{background:#087f73}.btn.secondary{background:#edf2f6;color:#33485b}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}.notice{background:#fff8e7;border:1px solid #f1dfad;color:#73551a;padding:11px 13px;border-radius:8px;font-size:12px;margin-bottom:15px}
+.toolbar{display:flex;gap:10px;align-items:center;margin:15px 0}.search{max-width:320px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:700px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 10px;vertical-align:top}th{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);background:#fbfcfd}td{font-size:12px}.msg{max-width:360px;white-space:pre-wrap;overflow-wrap:anywhere}.tag{display:inline-block;background:#edf4f8;color:#36556e;border-radius:5px;padding:3px 7px;font-size:10px}.empty{text-align:center;color:var(--muted);padding:35px}.hidden{display:none!important}.foot{color:#82909c;font-size:11px;padding:10px 0 25px}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{padding:14px}.brand{padding-bottom:12px}.nav{display:flex;overflow:auto}.navlabel{display:none}.nav button{white-space:nowrap;width:auto}.content{padding:20px 14px}.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.top{padding:0 16px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+ <div class="brand">ALPHA ROAD LOGISTICS<small>OPERATIONS CRM</small></div>
+ <div class="navlabel">Workspace</div>
+ <nav class="nav">
+  <button class="active" data-page="overview">▦ &nbsp; Overview</button>
+  <button data-page="sales">▤ &nbsp; Sales SMS Monitoring</button>
+  <button data-page="leads">◎ &nbsp; Sales Leads</button>
+  <button data-page="dispatch">▣ &nbsp; Dispatch & Loads</button>
+ </nav>
+ <div class="navlabel">Administration</div>
+ <nav class="nav"><button data-page="team">♙ &nbsp; Team & Reports</button></nav>
+</aside>
+<main class="main">
+ <header class="top"><strong id="topTitle">Owner Dashboard</strong><span class="user">Prototype mode · Owner view</span></header>
+ <div class="content">
+  <section id="overview">
+   <div class="heading"><div><h1>Good day, Owner</h1><div class="sub">Alpha Road Logistics team activity at a glance.</div></div><span class="pill">OWNER ADMIN</span></div>
+   <div class="stats">
+    <div class="stat"><span>Sales SMS submitted</span><b id="statSms">0</b></div>
+    <div class="stat"><span>Sales leads</span><b>—</b></div>
+    <div class="stat"><span>Active carriers</span><b>—</b></div>
+    <div class="stat"><span>Loads in progress</span><b>—</b></div>
+   </div>
+   <div class="panel"><h2>Sales communication monitoring</h2><div class="hint">Review the exact messages your sales team says it sent through Allo.</div><button class="btn" onclick="showPage('sales')">Open Sales SMS Inbox</button></div>
+   <div class="notice">This is a frontend starter/demo. Records are stored only in this browser on this computer. It is not yet connected to a shared cloud database or employee login.</div>
+  </section>
+  <section id="sales" class="hidden">
+   <div class="heading"><div><h1>Sales SMS Monitoring</h1><div class="sub">A copy of every carrier SMS sent through Allo should be submitted here.</div></div><span class="pill">OWNER VIEW · ALL SUBMISSIONS</span></div>
+   <div class="grid2">
+    <div class="panel">
+     <h2>Submit sent SMS</h2><div class="hint">Salesperson: paste the exact message after sending it in Allo.</div>
+     <div class="notice">The employee name is entered below in this prototype. In the live version it must come automatically from the signed-in employee account.</div>
+     <form id="smsForm">
+      <div class="field"><label for="employee">Employee name *</label><input id="employee" required placeholder="e.g. Sara / Sales Agent 01"></div>
+      <div class="field"><label for="carrier">Carrier / Company name *</label><input id="carrier" required placeholder="Carrier company name"></div>
+      <div class="formrow">
+       <div class="field"><label for="mc">MC number</label><input id="mc" placeholder="MC 123456"></div>
+       <div class="field"><label for="phone">Carrier phone</label><input id="phone" placeholder="+1 ..."></div>
+      </div>
+      <div class="field"><label for="message">Exact SMS sent through Allo *</label><textarea id="message" required placeholder="Paste the exact SMS here..."></textarea></div>
+      <button class="btn" type="submit">Submit message</button>
+     </form>
+    </div>
+    <div class="panel">
+     <h2>Company Sales SMS Inbox</h2><div class="hint">Every submitted message appears here with employee and carrier details.</div>
+     <div class="toolbar"><input class="search" id="smsSearch" placeholder="Search employee, carrier, MC or message..."><button class="btn secondary" id="exportBtn" type="button">Export CSV</button></div>
+     <div class="tablewrap"><table><thead><tr><th>Submitted at</th><th>Employee</th><th>Carrier / MC</th><th>Message copied from Allo</th></tr></thead><tbody id="smsRows"></tbody></table></div>
+     <div id="empty" class="empty">No SMS submissions yet.</div>
+    </div>
+   </div>
+  </section>
+  <section id="leads" class="hidden"><div class="heading"><div><h1>Sales Leads</h1><div class="sub">Lead pipeline module will be connected to the shared database in the next build stage.</div></div></div><div class="panel"><h2>Lead management</h2><p class="sub">Planned fields: carrier name, MC/DOT, contact, source, assigned salesperson, status, last contact and next follow-up.</p></div></section>
+  <section id="dispatch" class="hidden"><div class="heading"><div><h1>Dispatch & Loads</h1><div class="sub">Dispatch operations module.</div></div></div><div class="panel"><h2>Load management</h2><p class="sub">Planned fields: carrier, dispatcher, broker, load number, pickup, delivery, rate, status, BOL and POD.</p></div></section>
+  <section id="team" class="hidden"><div class="heading"><div><h1>Team & Reports</h1><div class="sub">Owner-only team oversight.</div></div></div><div class="panel"><h2>Employee accounts and activity</h2><p class="sub">Live version will use secure accounts and role-based access. Sales employees will see their assigned leads and their own submissions; Owner Admin will see all activity.</p></div></section>
+  <div class="foot">Alpha Road Logistics CRM · Development starter · Sample/empty data only</div>
+ </div>
+</main>
+</div>
+<script>
+const KEY='arl_sms_submissions_v1';
+let submissions=JSON.parse(localStorage.getItem(KEY)||'[]');
+function save(){localStorage.setItem(KEY,JSON.stringify(submissions));render();}
+function render(){
+ document.getElementById('statSms').textContent=submissions.length;
+ const q=(document.getElementById('smsSearch')?.value||'').toLowerCase();
+ const rows=submissions.filter(x=>[x.employee,x.carrier,x.mc,x.phone,x.message].join(' ').toLowerCase().includes(q));
+ document.getElementById('smsRows').innerHTML=rows.map(x=>`<tr><td>${escapeHtml(x.date)}</td><td>${escapeHtml(x.employee)}</td><td><b>${escapeHtml(x.carrier)}</b><br><span class="tag">${escapeHtml(x.mc||'MC not entered')}</span><br>${escapeHtml(x.phone||'')}</td><td class="msg">${escapeHtml(x.message)}</td></tr>`).join('');
+ document.getElementById('empty').classList.toggle('hidden',rows.length>0);
+}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function showPage(id){document.querySelectorAll('.content section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));document.getElementById('topTitle').textContent=({overview:'Owner Dashboard',sales:'Sales SMS Monitoring',leads:'Sales Leads',dispatch:'Dispatch & Loads',team:'Team & Reports'})[id];}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+document.getElementById('smsForm').addEventListener('submit',e=>{e.preventDefault();submissions.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),date:new Date().toLocaleString(),employee:employee.value.trim(),carrier:carrier.value.trim(),mc:mc.value.trim(),phone:phone.value.trim(),message:message.value.trim()});save();e.target.reset();alert('SMS submission saved in this browser.');});
+document.getElementById('smsSearch').addEventListener('input',render);
+document.getElementById('exportBtn').addEventListener('click',()=>{const cols=['date','employee','carrier','mc','phone','message'];const csv=[cols.join(','),...submissions.map(r=>cols.map(k=>'"'+String(r[k]||'').replace(/"/g,'""')+'"').join(','))].join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='alpha-road-sales-sms.csv';a.click();URL.revokeObjectURL(a.href);});
+render();
+</script>
+</body></html>
